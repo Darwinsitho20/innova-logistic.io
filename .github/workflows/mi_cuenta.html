@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Cuenta - INNOVA</title>
+<style>
+  /* Estilo del cuerpo */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  /* Contenedor del carrusel */
+  .carousel-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  /* Estilo de las imágenes */
+  .carousel-slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+  }
+
+  /* Mostrar la imagen activa */
+  .active {
+    display: block;
+  }
+
+  /* Estilo del contenedor de login */
+  .login-container {
+    width: 300px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+
+  /* Título con el logo */
+  .login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #003366; /* Azul oscuro */
+    font-weight: bold;
+  }
+
+  /* Estilo de los campos de texto */
+  .login-container input[type="text"],
+  .login-container input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px auto;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  /* Botón de iniciar sesión */
+  .login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff9900;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+
+  .login-container button:hover {
+    background-color: #e68a00;
+  }
+
+  .login-container .register-link {
+    display: block;
+    text-align: center;
+    color: #0073e6;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+
+  /* Flechas de navegación */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.3s;
+    user-select: none;
+  }
+
+  .prev {
+    left: 0;
+  }
+
+  .next {
+    right: 0;
+  }
+
+  .prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+</style>
+</head>
+<body>
+  <!-- Carrusel de imágenes -->
+  <div class="carousel-container">
+    <img src="https://latam.emeritus.org/wp-content/uploads/sites/6/2023/07/marketing-digital-2.png.webp" class="carousel-slide active">
+    <img src="https://casabritanica.com.co/wp-content/uploads/2024/09/casabritanica-renault-accesorios-cargador-smartphone-inalambrico.png" class="carousel-slide">
+    <img src="https://digitalome.com/wp-content/uploads/2021/12/auriculares-inala%CC%81mbricos-dep001-500x500.png" class="carousel-slide">
+    <img src="https://img1.wsimg.com/isteam/ip/e886bec9-0561-43eb-aeba-24fc41f54012/Demostracion%20de%20Computadoras-0002.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:99.92%25/rs=w:1240,h:620,cg:true" class="carousel-slide">
+    <img src="https://barranquilla.solutekla.com/photo/1/samsung/televisores_smart/televisor_samsung_led_43_full_hd_smart_tv_pantalla_plana_dvbt2hdmi_2_usb_1_garantia_1_ao/televisor_samsung_led_43_full_hd_smart_tv_pantalla_plana_dvbt2hdmi_2_usb_1_garantia_1_ao_0001" class="carousel-slide">
+    <img src="https://assets.xboxservices.com/assets/43/6d/436da0b2-ca93-428a-8829-430fbd431668.jpg?n=C2C-New-Hero-1920x720.jpg" class="carousel-slide">
+    <img src="https://http2.mlstatic.com/D_NQ_NP_779739-MCO72488007726_102023-O.webp" class="carousel-slide">
+    <img src="https://http2.mlstatic.com/D_NQ_NP_769945-MCO74932002003_032024-O.webp" class="carousel-slide">
+    <img src="https://www.patprimo.com/dw/image/v2/BHFM_PRD/on/demandware.static/-/Sites-storefront_catalog_pat/default/dwb9136c3f/images/hi-res/2022-2023/Accesorios-De-Belleza-para-mujer-30570005-1406_8.jpg?sw=800&sh=960" class="carousel-slide">
+    <img src="https://media.licdn.com/dms/image/v2/D4D12AQFRNhitrLYZ2g/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1656006418187?e=2147483647&v=beta&t=trD6iw864Z6--IoIThbAY6tvNhbed0O-aDV9K36TJSk" class="carousel-slide">
+
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+  </div>
+
+  <!-- Contenedor de Login -->
+  <div class="login-container">
+    <h2>INNOVA</h2>
+    <form action="index.html">
+      <input type="text" placeholder="Usuario" required>
+      <input type="password" placeholder="Contraseña" required>
+      <button type="submit">Iniciar sesión</button>
+    </form>
+    <a href="registrarse.html" class="register-link">Registrarse</a>
+  </div>
+
+  <!-- JavaScript para el carrusel -->
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".carousel-slide");
+    const prev = document.querySelector(".prev");
+    const next = document.querySelector(".next");
+
+    // Mostrar siguiente imagen
+    function showNextSlide() {
+      slides[slideIndex].classList.remove("active");
+      slideIndex = (slideIndex + 1) % slides.length;
+      slides[slideIndex].classList.add("active");
+    }
+
+    // Mostrar imagen anterior
+    function showPrevSlide() {
+      slides[slideIndex].classList.remove("active");
+      slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+      slides[slideIndex].classList.add("active");
+    }
+
+    // Navegación manual
+    next.addEventListener("click", showNextSlide);
+    prev.addEventListener("click", showPrevSlide);
+
+    // Transición automática cada 5 segundos
+    setInterval(showNextSlide, 5000);
+  </script>
+</body>
+</html>
