@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INNOVA - Comprar</title>
+    <style>
+        /* Fondo de pantalla azul marino */
+        body {
+            background-color: #003366; /* Azul marino */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        /* Cuadro central */
+        .formulario {
+            background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 30px;
+        }
+
+        /* Estilos para los campos de entrada */
+        .entrada {
+            margin: 15px 0;
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Botones */
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Enlaces */
+        .enlace {
+            display: block;
+            margin-top: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .enlace:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="formulario">
+        <h1>INNOVA Logistic</h1>
+
+        <!-- Formulario con entradas -->
+        <input class="entrada" type="text" id="numReferencia" placeholder="Número de referencia" required>
+        <input class="entrada" type="text" id="nombreCompleto" placeholder="Nombre completo" required>
+        <input class="entrada" type="text" id="ubicacion" placeholder="Ubicación" required>
+
+        <!-- Enlace para el carrito de compras -->
+        <a href="adquirir.html" class="btn">Adquirir Producto</a>
+
+        <!-- Mostrar el total acumulado -->
+        <p id="totalCompra">Total a pagar: $0</p>
+    </div>
+
+    <script>
+        // Función para mostrar el total de la compra (simulando el paso de datos)
+        window.onload = function() {
+            // Aquí, por ejemplo, podríamos simular que estamos recibiendo el total de la compra
+            let total = 500;  // Este total debería venir de la página de carrito de compras
+            document.getElementById('totalCompra').textContent = "Total a pagar: $" + total;
+        };
+    </script>
+
+</body>
+</html>
