@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Estilo de los productos */
+        .productos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+            width: 70%;
+        }
+
+        .producto {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 30%;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .producto img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .producto-info p {
+            margin: 5px 0;
+        }
+
+        .precio {
+            font-weight: bold;
+            color: #d9534f;
+            font-size: 18px;
+        }
+
+        .precio::before {
+            content: "₽ "; /* Símbolo de pesos colombianos */
+        }
+
+        .agregar-carrito {
+            background-color: #febd69;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .agregar-carrito:hover {
+            background-color: #f90;
+        }
+
+        /* Carrito de compras */
+        .carrito {
+            width: 25%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+            height: auto;
+        }
+
+        .carrito h2 {
+            text-align: center;
+        }
+
+        .carrito ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .carrito li {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+        }
+
+        /* Botones Comprar y Vaciar carrito */
+        .comprar, .vaciar-carrito {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            color: #fff;
+            text-align: center;
+            margin-top: 10px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .comprar {
+            background-color: #28a745;
+        }
+
+        .comprar:hover {
+            background-color: #218838;
+        }
+
+        .vaciar-carrito {
+            background-color: #dc3545;
+        }
+
+        .vaciar-carrito:hover {
+            background-color: #c82333;
+        }
+
+        /* Botón Volver al inicio */
+        .volver-inicio {
+            display: block;
+            width: 200px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .volver-inicio:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Productos -->
+        <div class="productos">
+            <div class="producto">
+                <img src="https://http2.mlstatic.com/D_Q_NP_724335-MLU77654868297_072024-O.webp" alt="Producto 1">
+                <div class="producto-info">
+                    <p>Reloj</p>
+                    <p class="precio">$ 300,000</p> <!-- Precio en pesos colombianos -->
+                    <button class="agregar-carrito" data-producto="Producto 1" data-precio="300000">Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="producto">
+                <img src="https://mueblesydisenos.com.co/wp-content/uploads/Silla-Iso-Malla.webp" alt="Producto 2">
+                <div class="producto-info">
+                    <p>Sillas</p>
+                    <p class="precio">$ 150,000</p> <!-- Precio en pesos colombianos -->
+                    <button class="agregar-carrito" data-producto="Producto 2" data-precio="150000">Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="producto">
+                <img src="https://mueblesydisenos.com.co/wp-content/uploads/Mesa-Cuadrada-K.webp" alt="Producto 3">
+                <div class="producto-info">
+                    <p>Mesas</p>
+                    <p class="precio">$ 120,000</p> <!-- Precio en pesos colombianos -->
+                    <button class="agregar-carrito" data-producto="Producto 3" data-precio="120000">Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="producto">
+                <img src="https://www.almacenesfuller.com.co/wp-content/uploads/2021/11/Bafle-Amplificado-Recargable-JR-15-j5162.jpg" alt="Producto 4">
+                <div class="producto-info">
+                    <p>Bafles</p>
+                    <p class="precio">$ 200,000</p> <!-- Precio en pesos colombianos -->
+                    <button class="agregar-carrito" data-producto="Producto 4" data-precio="200000">Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="producto">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_821666-MLA74019269225_012024-O.webp" alt="Producto 5">
+                <div class="producto-info">
+                    <p>PLay 5</p>
+                    <p class="precio">$ 500,000</p> <!-- Precio en pesos colombianos -->
+                    <button class="agregar-carrito" data-producto="Producto 5" data-precio="500000">Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="producto">
+                <img src="https://i.blogs.es/509bc7/accesorios-videojuegos-amazon-mexico/1366_2000.jpeg" alt="Producto 6">
+                <div class="producto-info">
+                    <p>Videojuegos</p>
+                    <p class="precio">$ 400,000</p> <!-- Precio en pesos colombianos -->
+                    <button class="agregar-carrito" data-producto="Producto 6" data-precio="400000">Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="producto">
+                <img src="https://www.ikea.com/ext/ingkadam/m/d34bc5424339b07/original/PE957553.jpg?f=s" alt="Producto 7">
+                <div class="producto-info">
+                    <p>Navidad</p>
+                    <p class="precio">$ 350,000</p> <!-- Precio en pesos colombianos -->
+                    <button class="agregar-carrito" data-producto="Producto 7" data-precio="350000">Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="producto">
+                <img src="https://prebel.vtexassets.com/arquivos/ids/181694-800-auto?v=638058974362800000&width=800&height=auto&aspect=true" alt="Producto 7">
+                <div class="producto-info">
+                    <p>Cajas de regalos</p>
+                    <p class="precio">$ 350,000</p> <!-- Precio en pesos colombianos -->
+                    <button class="agregar-carrito" data-producto="Producto 7" data-precio="350000">Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="producto">
+                <img src="https://cdn.shopify.com/s/files/1/0229/0839/articles/proveedores-de-ropa-online.png?v=1716831586" alt="Producto 7">
+                <div class="producto-info">
+                    <p>Accesorio para mujer</p>
+                    <p class="precio">$ 350,000</p> <!-- Precio en pesos colombianos -->
+                    <button class="agregar-carrito" data-producto="Producto 7" data-precio="350000">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carrito de compras -->
+        <div class="carrito">
+            <h2>Carrito de Compras</h2>
+            <ul id="lista-carrito">
+                <!-- Aquí se agregarán los productos -->
+            </ul>
+            <p id="total-carrito"><strong>Total: </strong>₽ 0</p>
+            <a href="#" class="vaciar-carrito" id="vaciar-carrito">Vaciar carrito</a>
+            <a href="comprar.html" class="comprar">Comprar</a>
+        </div>
+    </div>
+
+    <!-- Botón Volver al inicio -->
+    <a href="index.html" class="volver-inicio">Volver al inicio</a>
+
+    <script>
+        // Obtener elementos del DOM
+        const agregarCarritoBtns = document.querySelectorAll('.agregar-carrito');
+        const listaCarrito = document.getElementById('lista-carrito');
+        const totalCarrito = document.getElementById('total-carrito');
+        const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
+
+        let carrito = [];
+
+        // Función para agregar productos al carrito
+        function agregarAlCarrito(producto, precio) {
+            carrito.push({ producto, precio });
+            actualizarCarrito();
+        }
+
+        // Función para actualizar el carrito y mostrar los productos
+        function actualizarCarrito() {
+            listaCarrito.innerHTML = ''; // Limpiar el carrito
+            let total = 0;
+
+            carrito.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.producto} - ₽ ${item.precio.toLocaleString()}`;
+                listaCarrito.appendChild(li);
+                total += item.precio;
+            });
+
+            totalCarrito.textContent = `Total: ₽ ${total.toLocaleString()}`;
+        }
+
+        // Evento para cada botón de agregar al carrito
+        agregarCarritoBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const producto = btn.getAttribute('data-producto');
+                const precio = parseInt(btn.getAttribute('data-precio'));
+                agregarAlCarrito(producto, precio);
+            });
+        });
+
+        // Evento para vaciar el carrito
+        vaciarCarritoBtn.addEventListener('click', () => {
+            carrito = [];
+            actualizarCarrito();
+        });
+    </script>
+</body>
+</html>
